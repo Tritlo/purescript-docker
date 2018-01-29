@@ -1,6 +1,6 @@
 FROM node:9
 
-MAINTAINER Risto Stevcev
+MAINTAINER Matthias Pall Gissurarson
 ENV PURESCRIPT_DOWNLOAD_SHA1 f01eb69aa71f5f97c6980f8c68d107480c68ee64
 
 RUN yarn global add bower pulp@11.0.0
@@ -14,11 +14,11 @@ RUN cd /opt \
 ENV PATH /opt/purescript:$PATH
 
 RUN userdel node
-RUN useradd -m -s /bin/bash pureuser
+RUN useradd -m -s /bin/bash psc
 
-WORKDIR /home/pureuser
+WORKDIR /home/psc
 
-USER pureuser
+USER psc
 
 RUN mkdir tmp && cd tmp && pulp init
 
